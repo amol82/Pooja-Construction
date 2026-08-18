@@ -20,8 +20,42 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactForm) {
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
-            alert("Thank you! Your project inquiry has been received.");
+            
+            // Get inquirer's name
+            const nameInput = document.getElementById("inquirerName");
+            const inquirerName = nameInput.value.trim() || "Friend";
+            
+            showThankYouModal(inquirerName);
             contactForm.reset();
         });
+    }
+});
+
+// Thank You Modal Functions
+function showThankYouModal(inquirerName) {
+    const modal = document.getElementById("thankYouModal");
+    const nameSpan = document.getElementById("modalInquirerName");
+    
+    // Set the inquirer's name in the modal
+    nameSpan.textContent = inquirerName;
+    
+    modal.classList.add("show");
+    
+    // Auto-close after 5 seconds
+    setTimeout(() => {
+        closeThankYouModal();
+    }, 5000);
+}
+
+function closeThankYouModal() {
+    const modal = document.getElementById("thankYouModal");
+    modal.classList.remove("show");
+}
+
+// Close modal when clicking outside the content
+document.addEventListener("click", function (e) {
+    const modal = document.getElementById("thankYouModal");
+    if (e.target === modal) {
+        closeThankYouModal();
     }
 });

@@ -248,7 +248,7 @@
 
                 <form class="contact-form" id="contactForm">
                     <div class="field-row">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" id="inquirerName" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
                     </div>
 
@@ -259,6 +259,22 @@
             </div>
         </div>
     </section>
+
+    <!-- Thank You Modal -->
+    <div class="thank-you-modal" id="thankYouModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="39" stroke="#c89b3c" stroke-width="2"/>
+                    <path d="M33 40L37 44L47 34" stroke="#c89b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <h2>Thank You, <span id="modalInquirerName">Friend</span>!</h2>
+            <p>We've received your inquiry and appreciate your interest in Pooja Construction.</p>
+            <p class="modal-subtext">Our team will review your project details and get back to you within 24 hours.</p>
+            <button class="modal-button" onclick="closeThankYouModal()">Close</button>
+        </div>
+    </div>
 </main>
 
 <footer>

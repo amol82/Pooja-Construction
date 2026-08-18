@@ -111,10 +111,11 @@ section {
     align-items: center;
     gap: 40px;
     min-height: 620px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(31, 41, 55, 0.78)),
-        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(31, 41, 55, 0.75)),
+        url("https://images.unsplash.com/photo-1541976520773-b146fe66f9dd?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
     color: #fff;
     padding: 90px 7%;
+    position: relative;
 }
 
 .hero-content {
@@ -249,11 +250,19 @@ section {
 
 .stat-item {
     background: #fff;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     border-radius: 18px;
     padding: 28px 18px;
     text-align: center;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stat-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 12px 32px rgba(200, 155, 60, 0.2);
+    transform: translateY(-4px);
 }
 
 .stat-item strong {
@@ -298,7 +307,7 @@ section {
 }
 
 .about {
-    background: #fff;
+    background: linear-gradient(180deg, #fefdfb 0%, #faf8f3 100%);
 }
 
 .about-grid {
@@ -320,6 +329,12 @@ section {
     object-fit: cover;
     border-radius: 22px;
     box-shadow: var(--shadow);
+    border: 3px solid var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
 }
 
 .badge {
@@ -371,7 +386,8 @@ section {
 }
 
 .services {
-    background: linear-gradient(180deg, #f7f5f2 0%, #f4f1eb 100%);
+    background: linear-gradient(180deg, rgba(247, 245, 242, 0.95) 0%, rgba(244, 241, 235, 0.95) 100%),
+        url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80") center/cover fixed;
 }
 
 .services-container {
@@ -387,17 +403,36 @@ section {
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     padding: 32px 26px;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     border-radius: 20px;
     box-shadow: var(--shadow);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 38px rgba(17, 24, 39, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(200, 155, 60, 0.15);
+    border-color: var(--gold-soft);
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-icon {
@@ -441,10 +476,18 @@ section {
 .process-step,
 .testimonial-card {
     background: #f9f7f4;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     border-radius: 20px;
     padding: 28px 20px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.process-step:hover,
+.testimonial-card:hover {
+    border-color: var(--gold-soft);
+    box-shadow: 0 16px 32px rgba(200, 155, 60, 0.12);
+    transform: translateY(-4px);
 }
 
 .process-step span {
@@ -489,8 +532,15 @@ section {
     overflow: hidden;
     background: #fff;
     border-radius: 22px;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(200, 155, 60, 0.2);
+    transform: translateY(-6px);
 }
 
 .project-card img {
@@ -527,7 +577,8 @@ section {
 }
 
 .contact {
-    background: linear-gradient(180deg, #f7f7f7 0%, #ffffff 100%);
+    background: linear-gradient(180deg, rgba(247, 247, 247, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80") center/cover fixed;
 }
 
 .contact-container {
@@ -557,9 +608,15 @@ section {
 .contact-info,
 .contact-form {
     background: var(--panel);
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     border-radius: 22px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+    border-color: var(--gold-soft);
+    box-shadow: 0 16px 36px rgba(200, 155, 60, 0.15);
 }
 
 .contact-info {
@@ -778,11 +835,18 @@ footer {
 }
 
 .value-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--line);
     border-radius: 18px;
     padding: 28px 20px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    border-color: var(--gold-soft);
+    box-shadow: 0 12px 28px rgba(200, 155, 60, 0.15);
+    transform: translateY(-4px);
 }
 
 .value-card h3 {
@@ -801,10 +865,16 @@ footer {
     max-width: 900px;
     margin: 0 auto;
     background: #f9f7f4;
-    border: 1px solid var(--line);
+    border: 2px solid var(--gold-soft);
     border-radius: 20px;
     padding: 30px 24px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 24px rgba(200, 155, 60, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mission-box:hover {
+    box-shadow: 0 12px 32px rgba(200, 155, 60, 0.2);
+    border-color: var(--gold);
 }
 
 .mission-box p {

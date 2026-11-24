@@ -104,7 +104,7 @@ nav {
     gap: 28px;
 }
 
-nav a, .dropdown-trigger {
+nav > a, .dropdown-trigger {
     color: rgba(255, 255, 255, 0.85);
     font-weight: 600;
     position: relative;
@@ -117,7 +117,7 @@ nav a, .dropdown-trigger {
     background: none;
 }
 
-nav a::before, .dropdown-trigger::before {
+nav > a::before, .dropdown-trigger::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -128,7 +128,7 @@ nav a::before, .dropdown-trigger::before {
     transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-nav a::after, .dropdown-trigger::after {
+nav > a::after, .dropdown-trigger::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -139,16 +139,16 @@ nav a::after, .dropdown-trigger::after {
     z-index: -1;
 }
 
-nav a:hover, .dropdown-trigger:hover {
+nav > a:hover, .dropdown-trigger:hover {
     color: var(--gold-soft);
     transform: translateY(-2px);
 }
 
-nav a:hover::before, .dropdown-trigger:hover::before {
+nav > a:hover::before, .dropdown-trigger:hover::before {
     width: 100%;
 }
 
-nav a:hover::after, .dropdown-trigger:hover::after {
+nav > a:hover::after, .dropdown-trigger:hover::after {
     opacity: 1;
 }
 
@@ -209,7 +209,7 @@ nav a:hover::after, .dropdown-trigger:hover::after {
 }
 
 .dropdown-item:hover {
-    background: rgba(200, 155, 60, 0.15);
+    background: rgba(200, 155, 60, 0.24);
     color: var(--gold-soft);
     padding-left: 24px;
 }
@@ -680,7 +680,7 @@ section {
 
 .project-card:hover {
     border-color: var(--gold);
-    box-shadow: 0 20px 40px rgba(200, 155, 60, 0.2);
+    box-shadow: 0 20px 40px rgba(213, 168, 73, 0.2);
     transform: translateY(-6px);
 }
 

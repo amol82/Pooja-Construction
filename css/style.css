@@ -1991,10 +1991,52 @@ textarea:focus-visible {
     }
 }
 
+@keyframes background-bounce {
+    0% {
+        transform: translate3d(-3%, -4%, 0) scale(0.94);
+    }
+    28% {
+        transform: translate3d(4%, -1%, 0) scale(1.08);
+    }
+    58% {
+        transform: translate3d(1%, 5%, 0) scale(0.97);
+    }
+    82% {
+        transform: translate3d(-5%, 2%, 0) scale(1.04);
+    }
+    100% {
+        transform: translate3d(-3%, -4%, 0) scale(0.94);
+    }
+}
+
+.home-page::before {
+    content: "";
+    position: fixed;
+    left: -12%;
+    top: -12%;
+    width: 124%;
+    height: 124%;
+    z-index: 97;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 32%, rgba(115, 229, 237, 0.13), transparent 24%),
+        radial-gradient(circle at 82% 68%, rgba(200, 155, 60, 0.11), transparent 20%),
+        radial-gradient(circle at 72% 18%, rgba(115, 229, 237, 0.07), transparent 18%);
+    filter: blur(12px);
+    mix-blend-mode: screen;
+    transform-origin: center;
+    animation: background-bounce 10s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
+}
+
 @media (max-width: 768px) {
     .home-page .hero::before {
         opacity: 0.38;
         background-size: 24px 24px;
+    }
+
+    .home-page::before {
+        opacity: 0.72;
+        filter: blur(18px);
     }
 
     .home-page .hero::after {
@@ -2011,7 +2053,8 @@ textarea:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     .home-page .hero::after,
     .home-page .hero-visual::before,
-    .home-page .floating-card::before {
+    .home-page .floating-card::before,
+    .home-page::before {
         animation: none;
     }
 }

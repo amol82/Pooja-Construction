@@ -1805,12 +1805,32 @@ textarea:focus-visible {
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.52;
-    background-image:
-        linear-gradient(rgba(115, 229, 237, 0.075) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(115, 229, 237, 0.075) 1px, transparent 1px);
-    background-size: 64px 64px;
+    opacity: 0.48;
+    background-image: radial-gradient(circle, rgba(115, 229, 237, 0.34) 1px, transparent 1.35px);
+    background-size: 28px 28px;
     mask-image: linear-gradient(90deg, transparent 0%, #000 48%, #000 100%);
+}
+
+.home-page section:not(.hero) {
+    position: relative;
+    isolation: isolate;
+}
+
+.home-page section:not(.hero)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image: radial-gradient(circle, rgba(115, 229, 237, 0.28) 1px, transparent 1.35px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+}
+
+.home-page section:not(.hero) > * {
+    position: relative;
+    z-index: 1;
 }
 
 .home-page .hero::after {
@@ -1973,8 +1993,8 @@ textarea:focus-visible {
 
 @media (max-width: 768px) {
     .home-page .hero::before {
-        opacity: 0.34;
-        background-size: 48px 48px;
+        opacity: 0.38;
+        background-size: 24px 24px;
     }
 
     .home-page .hero::after {
@@ -1993,5 +2013,34 @@ textarea:focus-visible {
     .home-page .hero-visual::before,
     .home-page .floating-card::before {
         animation: none;
+    }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+        var(--spotlight-size, 320px) circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh),
+        rgba(115, 229, 237, 0.14),
+        rgba(115, 229, 237, 0.045) 42%,
+        transparent 76%
+    );
+    mix-blend-mode: screen;
+    transition: opacity 0.25s ease;
+}
+
+body.cursor-spotlight-active::after,
+.home-page.cursor-spotlight-active::after {
+    opacity: 1;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    body::after,
+    .home-page::after {
+        display: none;
     }
 }
